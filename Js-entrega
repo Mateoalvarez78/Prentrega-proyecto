@@ -1,1 +1,76 @@
 
+let seguro = parseInt(prompt("Ingrese el seguro que desea para su auto:  1- minimo, 2-basico, 3-medio, 4-alto, 5-total"));
+let costoSeguro;
+
+if (seguro === 1){
+    alert ('Eligió seguro mínimo, el costo es de $10000')
+    costoSeguro = 10000
+}
+else if (seguro === 2){
+    alert ('Eligió seguro basico, el costo es de $20000')
+    costoSeguro = 20000
+}
+
+else if (seguro === 3){
+    alert ('Eligió seguro medio, el costo es de $40000')
+    costoSeguro = 40000
+}
+
+else if (seguro === 4){
+    alert ('Eligió seguro alto, el costo es de $70000')
+    costoSeguro = 70000
+}
+
+else if (seguro === 5){
+    alert ('Eligió seguro total, el costo es de $100000')
+    costoSeguro = 100000
+}
+
+else{
+    alert ('opción invalida')
+}
+
+let cantidadCuotas = parseInt(prompt('Ingrese la cantidad de cuotas para financiar'));  
+
+    function calcularCuotas(){
+        let totalEnCuotas = costoSeguro / cantidadCuotas;
+        return totalEnCuotas;
+    }
+
+
+    console.log('Seguro elegido: ' + seguro + ', costo ' + costoSeguro);
+    console.log('total en', cantidadCuotas, 'cuotas ', calcularCuotas());
+
+    const arr = [];
+
+    let otrasOpciones = prompt('Desea agregar otros servicios? si/no para confirmar');
+    let nuevasOpciones;
+
+    if (otrasOpciones == "si") {
+
+    do {
+        nuevasOpciones = prompt('lavado de auto, cambio de cubiertas, pintura, arreglo de motor, caja de cambios, 0 para finalizar');
+        if (nuevasOpciones != 0){
+            arr.push(nuevasOpciones);
+        }
+    } while(nuevasOpciones != 0);
+     
+     console.log('Tambien agregó: ', arr);
+
+   
+
+    let buscarServicio = prompt("Que servicio desea saber si incluyó?");
+
+    let buscarElemento = arr.includes(buscarServicio);
+
+    if(buscarElemento == true){
+        console.log("Su servicio se encuentra incluido:", buscarServicio);
+    }
+    else{
+        console.log("Su servicio no se encuentra incluido");
+    }
+
+}  
+else {
+    alert('Gracias por elegirnos');
+}
