@@ -1,34 +1,47 @@
 
+let nombre = prompt("Ingrese su nombre");
+const h3 = document.getElementsByTagName("h3")[0];
+h3.innerText = 'Bienvenido: ' + nombre; 
+
 let seguro = parseInt(prompt("Ingrese el seguro que desea para su auto:  1- minimo, 2-basico, 3-medio, 4-alto, 5-total"));
+
 let costoSeguro;
 
 if (seguro === 1){
-    alert ('Eligió seguro mínimo, el costo es de $10000')
+    const td = document.getElementsByTagName("td")[0]
+    td.innerText = "Seguro mínimo";
     costoSeguro = 10000
 }
 else if (seguro === 2){
-    alert ('Eligió seguro basico, el costo es de $20000')
+    td = document.getElementsByTagName("td")[0]
+    td.innerText = "Seguro basico";
     costoSeguro = 20000
 }
 
 else if (seguro === 3){
-    alert ('Eligió seguro medio, el costo es de $40000')
+    td = document.getElementsByTagName("td")[0]
+    td.innerText = "Seguro medio";
     costoSeguro = 40000
 }
 
 else if (seguro === 4){
-    alert ('Eligió seguro alto, el costo es de $70000')
+    td = document.getElementsByTagName("td")[0]
+    td.innerText = "Seguro alto";
     costoSeguro = 70000
 }
 
 else if (seguro === 5){
-    alert ('Eligió seguro total, el costo es de $100000')
+    td = document.getElementsByTagName("td")[0]
+    td.innerText = "Seguro total";
     costoSeguro = 100000
 }
 
 else{
     alert ('opción invalida')
 }
+
+const costo = document.getElementById("costo");
+costo.innerText = "El costo es: " + costoSeguro;
 
 let cantidadCuotas = parseInt(prompt('Ingrese la cantidad de cuotas para financiar'));  
 
@@ -37,9 +50,11 @@ let cantidadCuotas = parseInt(prompt('Ingrese la cantidad de cuotas para financi
         return totalEnCuotas;
     }
 
+    const cuotas = document.getElementById("cuotas");
+    cuotas.innerText= "Cantidad de cuotas elegidas: " + cantidadCuotas;
 
-    console.log('Seguro elegido: ' + seguro + ', costo ' + costoSeguro);
-    console.log('total en', cantidadCuotas, 'cuotas ', calcularCuotas());
+    const costoCuota = document.getElementById("costoCuotas");
+    costoCuota.innerText = "Costo por cuota: " + calcularCuotas();
 
     const arr = [];
 
@@ -47,6 +62,9 @@ let cantidadCuotas = parseInt(prompt('Ingrese la cantidad de cuotas para financi
     let nuevasOpciones;
 
     if (otrasOpciones == "si") {
+
+        const otroServicio = document.getElementById("confirmar");
+        otroServicio.innerText = otrasOpciones;
 
     do {
         nuevasOpciones = prompt('lavado de auto, cambio de cubiertas, pintura, arreglo de motor, caja de cambios, 0 para finalizar');
@@ -72,5 +90,12 @@ let cantidadCuotas = parseInt(prompt('Ingrese la cantidad de cuotas para financi
 
 }  
 else {
+
+        otroServicio = document.getElementById("confirmar");
+        otroServicio.innerText = otrasOpciones;
+
+        const serviciosExtra = document.getElementById("serviciosExtra");
+        serviciosExtra.innerText = "-";
+
     alert('Gracias por elegirnos');
 }
